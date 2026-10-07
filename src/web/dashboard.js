@@ -1089,8 +1089,11 @@ document.body.hidden = false;
    so every catalog-backed string re-renders from the new catalog */
 $('localeSwitch')?.addEventListener('click', async () => {
   const btn = $('localeSwitch');
-  const next = document.documentElement.lang === 'zh-CN' ? 'en-US' : 'zh-CN';
+  if (!btn) return;
+  const next = document.documentElement.lang === 'zh-Hans' ? 'en-US' : 'zh-Hans';
+  btn.classList.remove('failed');
   btn.disabled = true;
+  btn.setAttribute('aria-busy', 'true');
   try {
     const r = await fetch('/api/settings/account', {
       method: 'POST',
@@ -1102,8 +1105,10 @@ $('localeSwitch')?.addEventListener('click', async () => {
     throw new Error(String(r.status));
   } catch (e) {
     btn.disabled = false;
+    btn.removeAttribute('aria-busy');
     btn.classList.add('failed');
     setMessageAttr(btn, 'title', 'dashboard.nav.locale.failed');
-    console.error(e);
+    // TODO: Add visible error message or aria-live announcement for accessibility
+    console.error('Locale switch failed:', e);
   }
 });

@@ -1,5 +1,5 @@
 {
-  "locale": "zh-CN",
+  "locale": "zh-Hans",
   "state": "Source",
   "messages": {
     "common.app_name": {
@@ -1424,7 +1424,7 @@
       "hash": "eefdd484"
     },
     "settings.server.days": {
-      "en": "days",
+      "en": "天",
       "hash": "ab51004e"
     },
     "settings.server.history.bytes.few": {

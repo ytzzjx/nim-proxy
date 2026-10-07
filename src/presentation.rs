@@ -26,7 +26,7 @@ const LOGIN: &str = include_str!("web/login.html");
 const SETUP: &str = include_str!("web/setup.html");
 const NIM_PROXY_ICON: &str = include_str!("web/icons/nim-proxy.svg");
 const EN_US_SOURCE: &str = include_str!("web/locales/en-US.json");
-const ZH_CN_SOURCE: &str = include_str!("web/locales/zh-CN.json");
+const ZH_HANS_SOURCE: &str = include_str!("web/locales/zh-Hans.json");
 
 pub const DEFAULT_LOCALE: &str = "en-US";
 /// The one source of truth for advertised, accepted, and embedded locales.
@@ -37,8 +37,8 @@ const INSTALLED_LOCALES: &[InstalledLocale] = &[
         source: EN_US_SOURCE,
     },
     InstalledLocale {
-        id: "zh-CN",
-        source: ZH_CN_SOURCE,
+        id: "zh-Hans",
+        source: ZH_HANS_SOURCE,
     },
 ];
 
